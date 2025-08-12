@@ -26,6 +26,9 @@ import sys
 
 from celery.schedules import crontab
 from flask_caching.backends.filesystemcache import FileSystemCache
+from custom_security_manager import CustomSecurityManager
+
+CUSTOM_SECURITY_MANAGER = CustomSecurityManager
 
 logger = logging.getLogger()
 
@@ -97,8 +100,29 @@ class CeleryConfig:
 
 
 CELERY_CONFIG = CeleryConfig
+ 
+# ===== FEATURE FLAGS =====
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True,
+                "FAB_ADD_SECURITY_API" : True,  "DASHBOARD_RBAC": True
+                }
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True}
+ 
+GUEST_ROLE_NAME = "GAMMA"
+GUEST_TOKEN_JWT_SECRET = "superset-guest-token-secret-key-12345"
+GUEST_TOKEN_JWT_ALGO = "HS256"
+GUEST_TOKEN_HEADER_NAME = "X-GuestToken"
+GUEST_TOKEN_JWT_EXP_SECONDS = 300
+ 
+# ===== CORS CONFIGURATION =====
+ENABLE_CORS = True
+CORS_OPTIONS = {
+    'supports_credentials': True,
+    'allow_headers': ['*'],
+    'resources': ['*'],
+    'origins': ['http://localhost:3001']
+}
+ 
+# ===== OTHER CONFIGURATIONS =====
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"  # When using docker compose baseurl should be http://superset_app:8088/  # noqa: E501
 # The base URL for the email report hyperlinks.
