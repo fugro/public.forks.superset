@@ -107,7 +107,7 @@ FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True,
                 }
 
  
-GUEST_ROLE_NAME = "GAMMA"
+GUEST_ROLE_NAME = "Public"
 GUEST_TOKEN_JWT_SECRET = "superset-guest-token-secret-key-12345"
 GUEST_TOKEN_JWT_ALGO = "HS256"
 GUEST_TOKEN_HEADER_NAME = "X-GuestToken"
