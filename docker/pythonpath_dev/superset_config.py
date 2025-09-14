@@ -27,8 +27,6 @@ import sys
 from celery.schedules import crontab
 from flask_caching.backends.filesystemcache import FileSystemCache
 
-from flask_login import current_user
-
 
 
 logger = logging.getLogger()
@@ -102,21 +100,12 @@ class CeleryConfig:
 CELERY_CONFIG = CeleryConfig
  
 # ===== FEATURE FLAGS =====
-FEATURE_FLAGS = {"ALERT_REPORTS": True,
-                  "EMBEDDED_SUPERSET": True,
-                # "FAB_ADD_SECURITY_API" : True,
-                    "DASHBOARD_RBAC": True,
-                # "ENABLE_TEMPLATE_PROCESSING": True,
-                "AllOW_DATA_UPLOAD": True,
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True, "DASHBOARD_RBAC": True, "AllOW_DATA_UPLOAD": True,
                 }
-
- 
 GUEST_ROLE_NAME = "Gamma"
-GUEST_TOKEN_JWT_SECRET = "superset-guest-token-secret-key-12345"
 GUEST_TOKEN_JWT_ALGO = "HS256"
 GUEST_TOKEN_HEADER_NAME = "X-GuestToken"                                    
 GUEST_TOKEN_JWT_EXP_SECONDS = 300
-
 PUBLIC_ROLE_LIKE = None 
  
 # ===== CORS CONFIGURATION =====
