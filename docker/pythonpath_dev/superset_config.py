@@ -95,12 +95,11 @@ class CeleryConfig:
         },
     }
 
+
 CELERY_CONFIG = CeleryConfig
- 
-# ===== FEATURE FLAGS =====
+
 FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True, "DASHBOARD_RBAC": True, "AllOW_DATA_UPLOAD": True}                          
  
-# ===== OTHER CONFIGURATIONS =====
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"  # When using docker compose baseurl should be http://superset_app:8088/  # noqa: E501
 # The base URL for the email report hyperlinks.
