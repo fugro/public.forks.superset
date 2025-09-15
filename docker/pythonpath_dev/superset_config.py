@@ -27,8 +27,6 @@ import sys
 from celery.schedules import crontab
 from flask_caching.backends.filesystemcache import FileSystemCache
 
-
-
 logger = logging.getLogger()
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT")
@@ -100,22 +98,7 @@ class CeleryConfig:
 CELERY_CONFIG = CeleryConfig
  
 # ===== FEATURE FLAGS =====
-FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True, "DASHBOARD_RBAC": True, "AllOW_DATA_UPLOAD": True,
-                }
-GUEST_ROLE_NAME = "Gamma"
-GUEST_TOKEN_JWT_ALGO = "HS256"
-GUEST_TOKEN_HEADER_NAME = "X-GuestToken"                                    
-GUEST_TOKEN_JWT_EXP_SECONDS = 300
-PUBLIC_ROLE_LIKE = None 
- 
-# ===== CORS CONFIGURATION =====
-ENABLE_CORS = True
-CORS_OPTIONS = {
-    'supports_credentials': True,
-    'allow_headers': ['*'],
-    'resources': ['*'],
-    'origins': ['http://localhost:3001']
-}
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True, "DASHBOARD_RBAC": True, "AllOW_DATA_UPLOAD": True}                          
  
 # ===== OTHER CONFIGURATIONS =====
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
